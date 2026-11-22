@@ -225,19 +225,19 @@
     });
   }, { rootMargin: '200% 0px' });
 
-  // A third of a card on screen: the closed rolls sit at the top of the space
-  // the card reserves, so by then they are well in view before they drop.
+  // Responsive threshold: on narrow mobile screens cards are tall, so 0.15 is ideal
+  var isNarrow = typeof window !== 'undefined' && window.innerWidth < 700;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
       var scroll = entry.target;
       observer.unobserve(scroll);
       wake(scroll);   // in case it came into view faster than the early pass
-      noLongerThan(ready(scroll), 2500).then(function () {
+      noLongerThan(ready(scroll), isNarrow ? 500 : 2500).then(function () {
         scroll.classList.add('is-unrolled');
       });
     });
-  }, { threshold: 0.35 });
+  }, { threshold: isNarrow ? 0.15 : 0.35 });
 
   Array.prototype.forEach.call(scrolls, function (scroll) {
     scroll.classList.add('is-armed');
@@ -263,15 +263,15 @@
   if (!cards.length || !('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // A quarter of a card: enough of it is up for the rise to be seen, on a
-  // phone card that fills the screen as well as on three across a desktop.
+  // On phones stacked one per row, a slightly lower threshold triggers the rise smoothly
+  var cardThreshold = typeof window !== 'undefined' && window.innerWidth < 700 ? 0.15 : 0.25;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-shown');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.25 });
+  }, { threshold: cardThreshold });
 
   Array.prototype.forEach.call(cards, function (card, i) {
     card.classList.add('is-armed');

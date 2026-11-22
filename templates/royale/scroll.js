@@ -76,9 +76,11 @@
     }
 
     if (gsap && ScrollTrigger) {
+      ScrollTrigger.config({ ignoreMobileResize: true });
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
+      // Restore healthy lag smoothing for mobile frame drops while keeping precision
+      gsap.ticker.lagSmoothing(500, 33);
     } else {
       requestAnimationFrame(function raf(time) {
         lenis.raf(time);
@@ -110,9 +112,15 @@
   /** Drifts across the whole time the section is on screen. */
   function drift(sel, from, to, trigger) {
     if (!has(sel)) return;
+    var isMobile = window.innerWidth < 700;
     gsap.fromTo(sel, from, Object.assign({}, to, {
       ease: 'none',
-      scrollTrigger: { trigger: trigger, start: 'top bottom', end: 'bottom top', scrub: true },
+      scrollTrigger: {
+        trigger: trigger,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: isMobile ? 0.5 : true
+      },
     }));
   }
 
@@ -126,8 +134,10 @@
   // so a phone's smaller picture drifts proportionally less.
   drift('.royale-pavilion__image', { yPercent: 3 }, { yPercent: -3 }, '.royale-pavilion');
 
-  // The gallery's papered wall slides behind its frames.
-  drift('.royale-gallery', { backgroundPositionY: '42%' }, { backgroundPositionY: '58%' }, '.royale-gallery');
+  // The gallery's papered wall slides behind its frames on desktop (avoid mobile raster spikes).
+  if (window.innerWidth >= 701) {
+    drift('.royale-gallery', { backgroundPositionY: '42%' }, { backgroundPositionY: '58%' }, '.royale-gallery');
+  }
 
   // The ornament laid over the seam, brought up with the wall it hangs on.
   // Opacity only: it carries a translate of its own that holds its gold rule
@@ -154,6 +164,11 @@
   // The reply, last on the page.
   reveal('#balcony-rsvp', { start: 'top 88%' });
 
-  // Pictures and fonts land after this runs and move everything below them.
+  // Pictures, fonts and cover opening move or reveal elements after this runs.
   window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+  document.addEventListener('balcony:cover-open', function () {
+    window.setTimeout(function () {
+      ScrollTrigger.refresh();
+    }, 100);
+  });
 })();

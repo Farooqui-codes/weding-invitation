@@ -713,10 +713,14 @@ body::before {
    locked together. */
 .royale-scroll.is-unrolled .royale-scroll__window,
 .royale-scroll.is-unrolled .royale-scroll__roller {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
   animation: ry-unroll-roller var(--unroll-dur) var(--unroll-delay) both;
 }
 
 .royale-scroll.is-unrolled .royale-scroll__sheet {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
   animation: ry-unroll-sheet var(--unroll-dur) var(--unroll-delay) both;
 }
 
@@ -787,10 +791,14 @@ body::before {
    one snaps, and the bottom roll swings a little on the rebound. Both stay
    inside what their roll covers, so no sheet edge shows. */
 .royale-scroll.is-unrolled .royale-scroll__rod--top {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
   animation: ry-unroll-tug var(--unroll-dur) var(--unroll-delay) both;
 }
 
 .royale-scroll.is-unrolled .royale-scroll__rod--bottom {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
   animation: ry-unroll-swing var(--unroll-dur) var(--unroll-delay) both;
 }
 
@@ -1145,6 +1153,9 @@ body::before {
   height: var(--w);
   margin-left: calc(var(--w) / -2);
   margin-top: calc(var(--w) / -2);
+  pointer-events: none;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
   /* Sideways: all of the throw at the start, slowing as the air takes it. */
   animation: ry-flake-drift var(--dur) cubic-bezier(0.1, 0.62, 0.3, 1) var(--delay) both;
 }
@@ -1154,6 +1165,9 @@ body::before {
   display: block;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Up, over and down. The rise ends at a standstill and the fall begins at
@@ -1528,8 +1542,10 @@ body::before {
   align-items: center;
   transform-origin: top center;
   perspective: 1400px;
+  -webkit-perspective: 1400px;
   perspective-origin: 50% 40%;
   will-change: transform;
+  -webkit-backface-visibility: hidden;
 }
 
 /* A beige ring threaded on the rail. */
@@ -1586,6 +1602,9 @@ body::before {
   z-index: 1;
   width: var(--frame-w);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
 }
 
 /* One width per kind of frame, carried on the hanging unit: the frame, its
@@ -2259,6 +2278,8 @@ body::before {
 .ryc-card.is-armed {
   opacity: 0;
   transform: translateY(clamp(18px, 2.4vw, 34px)) scale(0.97);
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
 }
 
 .ryc-card.is-armed.is-shown {
@@ -2516,6 +2537,9 @@ body::before {
      desktop. A free edge comes at most half a screen forward, so it never
      reaches the viewer. */
   perspective: 120vw;
+  -webkit-perspective: 120vw;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   touch-action: none;
   overscroll-behavior: none;
   cursor: pointer;
@@ -2530,6 +2554,7 @@ body::before {
     /* The doors turn about the top and bottom of the screen here, so the
        same 2.4 door-heights. */
     perspective: calc(1.2 * var(--screen-h));
+    -webkit-perspective: calc(1.2 * var(--screen-h));
   }
 }
 
@@ -3151,16 +3176,24 @@ body::before {
    Landscape: out to the right, from the middle - half the screen, plus its
    own width and the 20% of it its shadow reaches to the left. */
 .is-open .royale-card {
+  will-change: transform;
+  transform: translateZ(0);
   animation: ry-card-up var(--card-dur) var(--card-ease) forwards;
 }
 
 @keyframes ry-card-up {
+  from {
+    transform: translateY(0);
+  }
   to {
     transform: translateY(calc(-50% - var(--screen-h) / 2 - 130 * var(--u)));
   }
 }
 
 @keyframes ry-card-right {
+  from {
+    transform: translateX(0);
+  }
   to {
     transform: translateX(calc(71% + 50vw));
   }
@@ -3177,6 +3210,9 @@ body::before {
 .royale-gate__door,
 .royale-gate__decor {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .royale-gate__door--start,
@@ -3271,6 +3307,10 @@ body::before {
 }
 
 @keyframes ry-door-left {
+  from {
+    transform: rotateY(0deg);
+    filter: brightness(1);
+  }
   to {
     transform: rotateY(-100deg);
     filter: brightness(0.65);
@@ -3278,6 +3318,10 @@ body::before {
 }
 
 @keyframes ry-door-right {
+  from {
+    transform: rotateY(0deg);
+    filter: brightness(1);
+  }
   to {
     transform: rotateY(100deg);
     filter: brightness(0.65);
@@ -3285,6 +3329,10 @@ body::before {
 }
 
 @keyframes ry-door-top {
+  from {
+    transform: rotateX(0deg);
+    filter: brightness(1);
+  }
   to {
     transform: rotateX(100deg);
     filter: brightness(0.65);
@@ -3292,6 +3340,10 @@ body::before {
 }
 
 @keyframes ry-door-bottom {
+  from {
+    transform: rotateX(0deg);
+    filter: brightness(1);
+  }
   to {
     transform: rotateX(-100deg);
     filter: brightness(0.65);
@@ -3304,6 +3356,9 @@ body::before {
    ones outward - until it has turned its back and drops out. */
 .royale-gate__flap {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .royale-gate__flap--start {
@@ -3341,6 +3396,9 @@ body::before {
 }
 
 @keyframes ry-flap-top {
+  from {
+    transform: rotateX(0deg);
+  }
   to {
     transform: rotateX(100deg);
     filter: drop-shadow(0 0 calc(10 * var(--u)) rgb(20 0 8 / 0.35)) brightness(0.65);
@@ -3348,6 +3406,9 @@ body::before {
 }
 
 @keyframes ry-flap-bottom {
+  from {
+    transform: rotateX(0deg);
+  }
   to {
     transform: rotateX(-100deg);
     filter: drop-shadow(0 0 calc(10 * var(--u)) rgb(20 0 8 / 0.35)) brightness(0.65);
@@ -3355,6 +3416,9 @@ body::before {
 }
 
 @keyframes ry-flap-left {
+  from {
+    transform: rotateY(0deg);
+  }
   to {
     transform: rotateY(-100deg);
     filter: drop-shadow(0 0 calc(10 * var(--u)) rgb(20 0 8 / 0.35)) brightness(0.65);
@@ -3362,6 +3426,9 @@ body::before {
 }
 
 @keyframes ry-flap-right {
+  from {
+    transform: rotateY(0deg);
+  }
   to {
     transform: rotateY(100deg);
     filter: drop-shadow(0 0 calc(10 * var(--u)) rgb(20 0 8 / 0.35)) brightness(0.65);
@@ -3372,6 +3439,8 @@ body::before {
 /* 4. The names fade up out of a soft blur, one line after another. */
 .is-open .royale-couple__name,
 .is-open .royale-couple__amp {
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
   animation: ry-name-in var(--names-dur) cubic-bezier(0.22, 1, 0.36, 1) var(--names-delay) forwards;
 }
 

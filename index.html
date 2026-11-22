@@ -164,6 +164,31 @@
         .royale-couple {
           top: 17% !important;
         }
+
+        /* Mobile Animation Performance & Smoothness */
+        @keyframes ry-name-in {
+          from {
+            opacity: 0;
+            transform: translateY(14px);
+            filter: blur(1.5px);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+            filter: none;
+          }
+        }
+
+        .royale-scroll__window,
+        .royale-scroll__roller,
+        .royale-scroll__sheet,
+        .royale-date__stage,
+        .ryc-card {
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
       }
 
       /* ==========================================================================

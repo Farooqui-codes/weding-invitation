@@ -106,9 +106,9 @@
     Array.prototype.forEach.call(elephants, function (el) {
       var r = el.getBoundingClientRect();
       var left = el.classList.contains('royale-date__elephant--left');
-      // The howdah rides high on the elephant's back, in from the tail.
-      var x = r.left - box.left + r.width * (left ? 0.42 : 0.58);
-      var y = r.top - box.top + r.height * 0.08;
+      // The howdah rides high on the elephant's back; if hidden by custom styling, originate from stage lower corners
+      var x = r.width > 0 ? (r.left - box.left + r.width * (left ? 0.42 : 0.58)) : (left ? box.width * 0.18 : box.width * 0.82);
+      var y = r.height > 0 ? (r.top - box.top + r.height * 0.08) : (box.height * 0.65);
       for (var i = 0; i < 26; i++) flake(layer, x, y, left ? 1 : -1, unit);
     });
 
