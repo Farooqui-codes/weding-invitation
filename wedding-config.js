@@ -12,9 +12,9 @@ window.WEDDING_DATA = {
   // ---------------------------------------------------------------------------
   // 1. दूल्हा और दुल्हन की जानकारी (Groom & Bride Info)
   // ---------------------------------------------------------------------------
-  groomName: "Farhan",      // दूल्हे का नाम (Groom First Name)
-  brideName: "Ayesha",      // दुल्हन का नाम (Bride First Name)
-  title: "Farhan & Ayesha", // पेज का मुख्य टाइटल
+  groomName: "Akbar",       // दूल्हे का नाम (Groom First Name)
+  brideName: "Fatema",      // दुल्हन का नाम (Bride First Name)
+  title: "Akbar & Fatema",  // पेज का मुख्य टाइटल
   
   // शादी का मुख्य निमंत्रण संदेश (Front Envelope Message)
   introNote: "In the name of Allah, the Most Gracious, the Most Merciful. We cordially invite you to celebrate the joyous union and Nikah of…",
@@ -28,7 +28,7 @@ window.WEDDING_DATA = {
   // दूल्हे का खानदान (Groom's Family)
   groomFamily: {
     enabled: true,
-    name: "Farhan Ahmed",
+    name: "Akbar Ahmed",
     relLabel: "Son of",
     parentA: "Janab Tariq Ahmed",
     parentB: "Mohtarma Parveen Ahmed",
@@ -40,7 +40,7 @@ window.WEDDING_DATA = {
   // दुल्हन का खानदान (Bride's Family)
   brideFamily: {
     enabled: true,
-    name: "Ayesha Khan",
+    name: "Fatema Khan",
     relLabel: "Daughter of",
     parentA: "Janab Imran Khan",
     parentB: "Mohtarma Shabana Khan",

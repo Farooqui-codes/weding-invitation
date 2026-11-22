@@ -19,16 +19,16 @@
 ```javascript
 window.WEDDING_DATA = {
   // 1. दूल्हा और दुल्हन का नाम
-  groomName: "Farhan",
-  brideName: "Ayesha",
-  title: "Farhan & Ayesha",
+  groomName: "Akbar",
+  brideName: "Fatema",
+  title: "Akbar & Fatema",
 
   // 2. निकाह की तारीख (YYYY-MM-DD)
   weddingDate: "2026-11-15",
 
   // 3. खानदान की जानकारी (Groom & Bride Family)
   groomFamily: {
-    name: "Farhan Ahmed",
+    name: "Akbar Ahmed",
     relLabel: "Son of",
     parentA: "Janab Tariq Ahmed",
     parentB: "Mohtarma Parveen Ahmed",
@@ -37,7 +37,7 @@ window.WEDDING_DATA = {
     grandB: "Late Mohtarma Fatima Begum"
   },
   brideFamily: {
-    name: "Ayesha Khan",
+    name: "Fatema Khan",
     relLabel: "Daughter of",
     parentA: "Janab Imran Khan",
     parentB: "Mohtarma Shabana Khan",
