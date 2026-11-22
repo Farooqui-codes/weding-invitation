@@ -155,12 +155,12 @@ window.WEDDING_DATA = {
   farewell: "Your Presence & Duas Mean the World to Us",
 
   // ---------------------------------------------------------------------------
-  // 8. बैकग्राउंड रॉयल शहनाई / म्यूजिक (Background Music)
+  // 8. बैकग्राउंड इस्लामिक निकाह नशीद (Background Wedding Nasheed in Loop)
   // ---------------------------------------------------------------------------
   music: {
     enabled: true,
-    src: "templates/music/audio.mp3", // Royal Instrumental
-    volume: 0.5
+    src: "templates/music/audio.mp3", // Baraka Allahu Lakuma (Islamic Wedding Nasheed)
+    volume: 0.6
   }
 };
 
