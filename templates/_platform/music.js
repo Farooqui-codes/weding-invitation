@@ -29,22 +29,11 @@ window.BalconyMusic = (function () {
   var DEFAULT_TRACK = 'templates/music/audio.mp3';
 
   var ICON_ON =
-    '<svg class="music-toggle__icon music-toggle__icon--on" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path d="M4 9v6h4l5 4V5L8 9H4z"/>' +
-    '<path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
-    '<path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
-    '</svg>';
+    '<i class="fa-solid fa-volume-high music-toggle__icon music-toggle__icon--on" aria-hidden="true"></i>';
   var ICON_OFF =
-    '<svg class="music-toggle__icon music-toggle__icon--off" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path d="M4 9v6h4l5 4V5L8 9H4z"/>' +
-    '<path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
-    '</svg>';
+    '<i class="fa-solid fa-volume-xmark music-toggle__icon music-toggle__icon--off" aria-hidden="true"></i>';
   var ICON_NOTE =
-    '<svg class="music-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
-    '<circle cx="17" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
-    '</svg>';
+    '<i class="fa-solid fa-compact-disc music-toggle__icon" aria-hidden="true"></i>';
 
   function clamp01(n) { return Math.max(0, Math.min(1, n)); }
 

@@ -60,6 +60,7 @@ window.WEDDING_DATA = {
       time: "16:00",
       venue: "Ahmed Palace, Lucknow",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Ahmed+Palace+Lucknow",
+      attire: "Haldi Yellow & Mustard Traditional",
       enabled: true
     },
     {
@@ -69,6 +70,7 @@ window.WEDDING_DATA = {
       time: "18:00",
       venue: "Ahmed Palace, Lucknow",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Ahmed+Palace+Lucknow",
+      attire: "Shades of Green & Floral",
       enabled: true
     },
     {
@@ -78,6 +80,7 @@ window.WEDDING_DATA = {
       time: "20:30",
       venue: "Ahmed Palace, Lucknow",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Ahmed+Palace+Lucknow",
+      attire: "Royal Nawabi / Indo-Western",
       enabled: true
     },
     {
@@ -87,6 +90,7 @@ window.WEDDING_DATA = {
       time: "19:00",
       venue: "The Royal Orchid Banquet, Lucknow",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Orchid+Lucknow",
+      attire: "Royal Traditional Sherwani & Gharara",
       enabled: true
     },
     {
@@ -96,6 +100,7 @@ window.WEDDING_DATA = {
       time: "20:00",
       venue: "The Royal Orchid Banquet, Lucknow",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Royal+Orchid+Lucknow",
+      attire: "Formal Royal Evening Attire",
       enabled: true
     }
   ],
@@ -161,6 +166,15 @@ window.WEDDING_DATA = {
     enabled: true,
     src: "templates/music/audio.mp3", // Baraka Allahu Lakuma (Islamic Wedding Nasheed)
     volume: 0.6
+  },
+
+  // ---------------------------------------------------------------------------
+  // 9. व्हाट्सएप RSVP व दुआएं (WhatsApp Direct RSVP & Mubarak Wishes)
+  // ---------------------------------------------------------------------------
+  whatsappRSVP: {
+    enabled: true,
+    phone: "919876543210", // Phone number with country code (e.g. 919876543210)
+    contactPerson: "Ahmed & Khan Family"
   }
 };
 

@@ -214,13 +214,10 @@
   var DIVIDER = '<span class="ry-modal__divider" aria-hidden="true"></span>';
 
   var PIN_SVG =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
-    '<path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11Z"/>' +
-    '<circle cx="12" cy="10" r="2.4"/></svg>';
+    '<i class="fa-solid fa-location-dot" style="font-size:1.15rem;color:currentColor;margin-right:0.35rem;" aria-hidden="true"></i>';
 
   var CAL_SVG =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
-    '<rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>';
+    '<i class="fa-solid fa-calendar-days" style="font-size:1.15rem;color:currentColor;margin-right:0.35rem;" aria-hidden="true"></i>';
 
   function emptyRow(text) {
     return '<p class="ry-modal__empty">' + esc(text) + '</p>';

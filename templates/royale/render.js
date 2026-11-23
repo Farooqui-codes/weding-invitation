@@ -527,13 +527,12 @@
           '<img class="ryc-card__art" src="' + esc(c.art || '') + '" alt="" aria-hidden="true" loading="lazy" decoding="async">' +
           '</div>') +
       '<h3 class="ryc-card__name"' + ed('ceremonies.' + i + '.name', { placeholder: c.custom ? 'Ceremony name' : 'Ceremony' }) + '>' + esc(name) + '</h3>' +
+      (c.attire
+        ? '<div class="ryc-card__attire"><i class="fa-solid fa-shirt" aria-hidden="true"></i> <span>Theme: ' + esc(c.attire) + '</span></div>'
+        : '') +
       '<div class="ryc-card__foot">' +
       '<div class="ryc-card__where">' +
       '<p class="ryc-card__venue"' + ed('ceremonies.' + i + '.venue', { placeholder: 'Venue' }) + '>' + esc(c.venue || '') + '</p>' +
-      (map
-        ? '<a class="ryc-card__map" href="' + esc(map) + '" target="_blank" rel="noopener" aria-label="' + esc(name) + ' venue on the map">' +
-          '<img src="media/location.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></a>'
-        : '') +
       '</div>' +
       // The time is optional: a ceremony with none simply shows its date,
       // and the field is left empty for a host who has not fixed one yet.
@@ -551,6 +550,11 @@
         : '<span class="ryc-card__date">' + esc(RY.fmtDate(c.date)) + '</span>' +
           (RY.fmtTime(c.time) ? '<span class="ryc-card__time">' + esc(RY.fmtTime(c.time)) + '</span>' : '')) +
       '</p>' +
+      (map
+        ? '<div class="ryc-card__actions">' +
+          '<a class="ryc-card__btn ryc-card__btn--map" href="' + esc(map) + '" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps</a>' +
+          '</div>'
+        : '') +
       '</div></div></article>';
 
     // The card and its panel travel together as one item of the grid, so the

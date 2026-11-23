@@ -8,6 +8,14 @@
     />
     <title>Royal - Wedding Invitation</title>
 
+    <!-- Font Awesome 6 (Strictly used for all icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- Fraunces (cover greeting) and Cormorant Garamond (couple names) are
          self-hosted - see templates/_platform/vendor/fonts/fonts.css for why. -->
     <link rel="stylesheet" href="templates/_platform/vendor/fonts/fonts.css" />
@@ -264,6 +272,420 @@
       [class*="balcony-toolbar"],
       [class*="watermark"] {
         display: none !important;
+      }
+
+      /* =====================================================================
+         ROYAL WEDDING FEATURES (Font Awesome Icons, Countdown, RSVP, Map, Share)
+         ===================================================================== */
+      
+      /* --- 1. Ceremony Dress Code & Google Maps Action Button --- */
+      .ryc-card__attire {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 8px auto 14px auto;
+        padding: 5px 14px;
+        background: rgba(223, 186, 83, 0.12);
+        border: 1px solid rgba(223, 186, 83, 0.45);
+        border-radius: 999px;
+        color: #580b1c;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-align: center;
+      }
+      .ryc-card__attire i {
+        color: #b8860b;
+        font-size: 0.95rem;
+      }
+
+      .ryc-card__actions {
+        margin-top: 14px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .ryc-card__btn--map {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 18px;
+        min-height: 40px;
+        background: linear-gradient(135deg, #630b1e 0%, #460512 100%);
+        border: 1px solid #dfba53;
+        border-radius: 999px;
+        color: #faf6ee !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none !important;
+        box-shadow: 0 3px 10px rgba(99, 11, 30, 0.25);
+        transition: all 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .ryc-card__btn--map i {
+        color: #dfba53;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease;
+      }
+      .ryc-card__btn--map:hover,
+      .ryc-card__btn--map:focus-visible {
+        background: linear-gradient(135deg, #7c1028 0%, #580b1c 100%);
+        box-shadow: 0 5px 15px rgba(223, 186, 83, 0.35);
+        transform: translateY(-2px);
+      }
+      .ryc-card__btn--map:hover i {
+        transform: scale(1.15);
+      }
+
+      /* --- 2. Royal Live Countdown Timer & Calendar Actions --- */
+      .royal-countdown-wrapper {
+        position: relative;
+        width: min(92%, 620px);
+        margin: 28px auto 10px auto;
+        padding: 22px 18px 24px 18px;
+        background: rgba(255, 255, 255, 0.82);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1.5px solid rgba(223, 186, 83, 0.65);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(99, 11, 30, 0.08), inset 0 0 16px rgba(223, 186, 83, 0.08);
+        text-align: center;
+        z-index: 5;
+      }
+      .royal-countdown__ornament {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: #dfba53;
+        font-size: 0.9rem;
+      }
+      .royal-cd-line {
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #dfba53, transparent);
+      }
+      .royal-cd-icon {
+        font-size: 1.15rem;
+        color: #630b1e;
+        animation: rcHourglass 3s ease-in-out infinite;
+      }
+      @keyframes rcHourglass {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(180deg); }
+      }
+      .royal-countdown__title {
+        margin: 0 0 18px 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #630b1e;
+      }
+      .royal-countdown__grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+      .royal-cd-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 62px;
+        padding: 10px 6px;
+        background: linear-gradient(180deg, #faf6ee 0%, #f2e7d3 100%);
+        border: 1px solid rgba(223, 186, 83, 0.7);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(99, 11, 30, 0.06);
+      }
+      .royal-cd-num {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.95rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #630b1e;
+      }
+      .royal-cd-lbl {
+        margin-top: 5px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #8c6f2d;
+      }
+      .royal-cd-sep {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #dfba53;
+        margin-top: -12px;
+      }
+      .royal-countdown__status {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #630b1e;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+      }
+      .royal-countdown__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .royal-cd-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 9px 18px;
+        min-height: 42px;
+        border-radius: 999px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-decoration: none !important;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .royal-cd-btn--google {
+        background: linear-gradient(135deg, #630b1e 0%, #460512 100%);
+        border: 1px solid #dfba53;
+        color: #faf6ee !important;
+        box-shadow: 0 4px 14px rgba(99, 11, 30, 0.22);
+      }
+      .royal-cd-btn--google i {
+        color: #dfba53;
+        font-size: 0.95rem;
+      }
+      .royal-cd-btn--google:hover {
+        background: linear-gradient(135deg, #7c1028 0%, #580b1c 100%);
+        box-shadow: 0 6px 18px rgba(223, 186, 83, 0.35);
+        transform: translateY(-2px);
+      }
+      .royal-cd-btn--apple {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(223, 186, 83, 0.65);
+        color: #630b1e;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+      .royal-cd-btn--apple i {
+        color: #630b1e;
+        font-size: 0.95rem;
+      }
+      .royal-cd-btn--apple:hover {
+        background: #fdfbf7;
+        border-color: #dfba53;
+        box-shadow: 0 6px 16px rgba(223, 186, 83, 0.25);
+        transform: translateY(-2px);
+      }
+
+      /* --- 3. Royal WhatsApp RSVP & Mubarak Wishes Card --- */
+      .royal-wa-section {
+        position: relative;
+        padding: 50px 20px 40px 20px;
+        background: #faf6ee;
+        text-align: center;
+        z-index: 5;
+      }
+      .royal-wa-card {
+        max-width: 660px;
+        margin: 0 auto;
+        padding: 34px 24px;
+        background: linear-gradient(145deg, #630b1e 0%, #3e0510 100%);
+        border: 2px solid #dfba53;
+        border-radius: 24px;
+        box-shadow: 0 16px 40px rgba(62, 5, 16, 0.35), inset 0 0 25px rgba(223, 186, 83, 0.15);
+        color: #faf6ee;
+        position: relative;
+      }
+      .royal-wa-card__crest {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px auto;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1.5px solid #dfba53;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .royal-wa-crest-icon {
+        font-size: 1.85rem;
+        color: #25D366;
+      }
+      .royal-wa-card__title {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.9rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #dfba53;
+        margin: 0 0 12px 0;
+      }
+      .royal-wa-card__subtitle {
+        font-family: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(250, 246, 238, 0.88);
+        margin: 0 auto 26px auto;
+        max-width: 520px;
+      }
+      .royal-wa-card__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .royal-wa-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 24px;
+        min-height: 46px;
+        border-radius: 999px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-decoration: none !important;
+        transition: all 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .royal-wa-btn--rsvp {
+        background: #25D366;
+        border: 1px solid #20b858;
+        color: #ffffff !important;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+      }
+      .royal-wa-btn--rsvp i {
+        font-size: 1.25rem;
+      }
+      .royal-wa-btn--rsvp:hover {
+        background: #20ba59;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        transform: translateY(-2px);
+      }
+      .royal-wa-btn--dua {
+        background: rgba(223, 186, 83, 0.15);
+        border: 1.5px solid #dfba53;
+        color: #dfba53 !important;
+      }
+      .royal-wa-btn--dua i {
+        font-size: 1.15rem;
+        color: #dfba53;
+      }
+      .royal-wa-btn--dua:hover {
+        background: #dfba53;
+        color: #3e0510 !important;
+        box-shadow: 0 6px 20px rgba(223, 186, 83, 0.4);
+        transform: translateY(-2px);
+      }
+      .royal-wa-btn--dua:hover i {
+        color: #3e0510 !important;
+      }
+
+      /* --- 4. Floating WhatsApp Share Button --- */
+      .royal-floating-bar {
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        z-index: 85;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        pointer-events: none;
+      }
+      .royal-float-btn {
+        pointer-events: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1.5px solid #dfba53;
+        background: linear-gradient(135deg, #25D366 0%, #1ea952 100%);
+        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 12px rgba(37, 211, 102, 0.35);
+        transition: all 0.25s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .royal-float-btn i {
+        font-size: 1.3rem;
+      }
+      .royal-float-btn:hover {
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3), 0 0 16px rgba(223, 186, 83, 0.5);
+      }
+      .royal-float-btn:active {
+        transform: scale(0.96);
+      }
+
+      /* Safe area insets for notched mobile phones */
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .royal-floating-bar {
+          bottom: calc(20px + env(safe-area-inset-bottom));
+          right: calc(16px + env(safe-area-inset-right));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .royal-countdown-wrapper {
+          width: 95%;
+          padding: 18px 12px;
+          margin-top: 20px;
+        }
+        .royal-countdown__title {
+          font-size: 1.3rem;
+        }
+        .royal-cd-box {
+          min-width: 52px;
+          padding: 8px 4px;
+        }
+        .royal-cd-num {
+          font-size: 1.55rem;
+        }
+        .royal-cd-lbl {
+          font-size: 0.62rem;
+        }
+        .royal-cd-sep {
+          font-size: 1.3rem;
+        }
+        .royal-wa-card {
+          padding: 24px 16px;
+        }
+        .royal-wa-card__title {
+          font-size: 1.6rem;
+        }
+        .royal-wa-btn {
+          width: 100%;
+        }
+        .royal-float-btn span {
+          display: inline;
+        }
       }
     </style>
   </head>
@@ -898,6 +1320,58 @@
 
         <!-- The settled date in words, for a guest who cannot see the dials. -->
         <p class="royale-date__said" id="ryRevealSaid" aria-live="polite"></p>
+      </div>
+
+      <!-- Royal Live Countdown & 1-Click Calendar Actions -->
+      <div class="royal-countdown-wrapper" id="royalCountdown">
+        <div class="royal-countdown__ornament" aria-hidden="true">
+          <span class="royal-cd-line"></span>
+          <i class="fa-solid fa-hourglass-half royal-cd-icon"></i>
+          <span class="royal-cd-line"></span>
+        </div>
+        <h4 class="royal-countdown__title">Royal Wedding Countdown</h4>
+        <div class="royal-countdown__grid" id="rcGrid" role="timer" aria-live="polite">
+          <div class="royal-cd-box">
+            <span class="royal-cd-num" id="rcDays">00</span>
+            <span class="royal-cd-lbl">Days</span>
+          </div>
+          <div class="royal-cd-sep">:</div>
+          <div class="royal-cd-box">
+            <span class="royal-cd-num" id="rcHours">00</span>
+            <span class="royal-cd-lbl">Hours</span>
+          </div>
+          <div class="royal-cd-sep">:</div>
+          <div class="royal-cd-box">
+            <span class="royal-cd-num" id="rcMins">00</span>
+            <span class="royal-cd-lbl">Minutes</span>
+          </div>
+          <div class="royal-cd-sep">:</div>
+          <div class="royal-cd-box">
+            <span class="royal-cd-num" id="rcSecs">00</span>
+            <span class="royal-cd-lbl">Seconds</span>
+          </div>
+        </div>
+        <div class="royal-countdown__status" id="rcStatus" hidden></div>
+        <div class="royal-countdown__actions">
+          <a
+            class="royal-cd-btn royal-cd-btn--google"
+            id="rcGoogleCalBtn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-solid fa-calendar-plus" aria-hidden="true"></i>
+            <span>Add to Google Calendar</span>
+          </a>
+          <button
+            class="royal-cd-btn royal-cd-btn--apple"
+            id="rcAppleCalBtn"
+            type="button"
+          >
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            <span>Apple / Outlook (.ics)</span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -1772,6 +2246,41 @@
       </div>
     </section>
 
+    <!-- Royal WhatsApp Direct RSVP & Mubarak Wishes Section -->
+    <section class="royal-wa-section" aria-label="WhatsApp RSVP and Mubarak Wishes">
+      <div class="royal-wa-card">
+        <div class="royal-wa-card__crest" aria-hidden="true">
+          <i class="fa-brands fa-whatsapp royal-wa-crest-icon"></i>
+        </div>
+        <h3 class="royal-wa-card__title">RSVP &amp; Best Duas</h3>
+        <p class="royal-wa-card__subtitle">
+          Your presence and blessings are our greatest joy. Kindly confirm your RSVP or send your warm congratulatory wishes to the family.
+        </p>
+        <div class="royal-wa-card__actions">
+          <a
+            class="royal-wa-btn royal-wa-btn--rsvp"
+            id="royalWaRsvpBtn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <span>Confirm RSVP on WhatsApp</span>
+          </a>
+          <a
+            class="royal-wa-btn royal-wa-btn--dua"
+            id="royalWaDuaBtn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-solid fa-hands-praying" aria-hidden="true"></i>
+            <span>Send Mubarak &amp; Duas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- The closing picture, under its own torn band, with the send-off
          written on the easel's board - rose-invitation's closing easel: the
          guest's name, then the thank-you line. The artwork is all decorative
@@ -1910,5 +2419,209 @@
         </p>
       </div>
     </footer>
+
+    <!-- Floating Quick Actions: WhatsApp Share Invitation -->
+    <div class="royal-floating-bar" id="royalFloatingBar">
+      <button
+        class="royal-float-btn royal-float-btn--share"
+        id="royalFloatShareBtn"
+        type="button"
+        aria-label="Share Wedding Invitation on WhatsApp"
+        title="Share Invitation on WhatsApp"
+      >
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <span>Share Invite</span>
+      </button>
+    </div>
+
+    <!-- Royal Interactive Features Script (Live Countdown, Calendar, WhatsApp RSVP & Share) -->
+    <script>
+      (function () {
+        // --- 1. Royal Wedding Countdown Timer ---
+        function initCountdown() {
+          var weddingData = window.WEDDING_DATA || {};
+          var targetDateStr = weddingData.weddingDate || '2026-11-15';
+          var targetDate = new Date(targetDateStr + 'T19:00:00');
+          if (isNaN(targetDate.getTime())) {
+            targetDate = new Date(targetDateStr.replace(/-/g, '/') + ' 19:00:00');
+          }
+
+          var daysEl = document.getElementById('rcDays');
+          var hoursEl = document.getElementById('rcHours');
+          var minsEl = document.getElementById('rcMins');
+          var secsEl = document.getElementById('rcSecs');
+          var gridEl = document.getElementById('rcGrid');
+          var statusEl = document.getElementById('rcStatus');
+
+          function pad(n) {
+            return (n < 10 ? '0' : '') + Math.floor(n);
+          }
+
+          function tick() {
+            var now = new Date().getTime();
+            var diff = targetDate.getTime() - now;
+
+            if (diff <= 0) {
+              if (gridEl) gridEl.style.display = 'none';
+              if (statusEl) {
+                statusEl.hidden = false;
+                statusEl.innerHTML = '✦ Alhamdulillah! The Auspicious Wedding Celebrations Have Begun • Mubarak! ✦';
+              }
+              return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            if (daysEl) daysEl.textContent = pad(days);
+            if (hoursEl) hoursEl.textContent = pad(hours);
+            if (minsEl) minsEl.textContent = pad(mins);
+            if (secsEl) secsEl.textContent = pad(secs);
+          }
+
+          tick();
+          setInterval(tick, 1000);
+        }
+
+        // --- 2. 1-Click Calendar Deep Link & .ics Download ---
+        function initCalendar() {
+          var weddingData = window.WEDDING_DATA || {};
+          var groom = weddingData.groomName || 'Akbar';
+          var bride = weddingData.brideName || 'Fatema';
+          var dateStr = (weddingData.weddingDate || '2026-11-15').replace(/-/g, '');
+          var title = 'Nikah & Wedding Celebrations of ' + groom + ' & ' + bride;
+          var details = 'You are cordially invited to celebrate the joyous union and Nikah of ' + groom + ' and ' + bride + '.\nMay Allah bless this union.';
+          var venue = 'The Royal Orchid Banquet, Lucknow';
+
+          if (weddingData.ceremonies && weddingData.ceremonies.length) {
+            weddingData.ceremonies.forEach(function (c) {
+              if (c.name && c.name.toLowerCase().indexOf('nikah') !== -1 && c.venue) {
+                venue = c.venue;
+              }
+            });
+          }
+
+          // Google Calendar Deep Link
+          var googleBtn = document.getElementById('rcGoogleCalBtn');
+          if (googleBtn) {
+            var start = dateStr + 'T133000Z';
+            var end = dateStr + 'T173000Z';
+            var gUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+              '&text=' + encodeURIComponent(title) +
+              '&dates=' + start + '/' + end +
+              '&details=' + encodeURIComponent(details) +
+              '&location=' + encodeURIComponent(venue);
+            googleBtn.href = gUrl;
+          }
+
+          // Apple / Outlook .ics download
+          var appleBtn = document.getElementById('rcAppleCalBtn');
+          if (appleBtn) {
+            appleBtn.addEventListener('click', function () {
+              var stamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+              var icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Royal Shahi Patra Wedding//EN',
+                'CALSCALE:GREGORIAN',
+                'BEGIN:VEVENT',
+                'UID:royal-wedding-' + dateStr + '@invitation',
+                'DTSTAMP:' + stamp,
+                'DTSTART;VALUE=DATE:' + dateStr,
+                'SUMMARY:' + title,
+                'DESCRIPTION:' + details.replace(/\n/g, '\\n'),
+                'LOCATION:' + venue,
+                'BEGIN:VALARM',
+                'TRIGGER:-P1D',
+                'ACTION:DISPLAY',
+                'DESCRIPTION:' + title,
+                'END:VALARM',
+                'END:VEVENT',
+                'END:VCALENDAR'
+              ].join('\r\n');
+
+              var blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+              var url = URL.createObjectURL(blob);
+              var a = document.createElement('a');
+              a.href = url;
+              a.download = (groom + '-' + bride + '-Wedding.ics').replace(/\s+/g, '-');
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+            });
+          }
+        }
+
+        // --- 3. WhatsApp Direct RSVP & Mubarak Wishes ---
+        function initWhatsApp() {
+          var weddingData = window.WEDDING_DATA || {};
+          var groom = weddingData.groomName || 'Akbar';
+          var bride = weddingData.brideName || 'Fatema';
+          var rsvpCfg = weddingData.whatsappRSVP || {};
+          var phone = (rsvpCfg.phone || '919876543210').replace(/[^0-9]/g, '');
+
+          var rsvpBtn = document.getElementById('royalWaRsvpBtn');
+          if (rsvpBtn) {
+            var rsvpMsg = 'Assalamu Alaikum! Heartiest congratulations on ' + groom + ' & ' + bride + '\'s Nikah. We are delighted to accept your gracious invitation and will attend the celebrations inshaAllah!';
+            rsvpBtn.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(rsvpMsg);
+          }
+
+          var duaBtn = document.getElementById('royalWaDuaBtn');
+          if (duaBtn) {
+            var duaMsg = 'Barakallahu lakuma wa baraka alaikuma wa jama\'a bainakuma fee khair! Heartiest Mubarak & prayers for ' + groom + ' and ' + bride + ' on their wedding. May Allah bless both families with immense joy & prosperity!';
+            duaBtn.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(duaMsg);
+          }
+        }
+
+        // --- 4. Floating WhatsApp Share Button ---
+        function initShare() {
+          var shareBtn = document.getElementById('royalFloatShareBtn');
+          if (!shareBtn) return;
+
+          shareBtn.addEventListener('click', function () {
+            var weddingData = window.WEDDING_DATA || {};
+            var groom = weddingData.groomName || 'Akbar';
+            var bride = weddingData.brideName || 'Fatema';
+            var pageUrl = window.location.href;
+
+            var shareText = '👑 *Royal Wedding Invitation* 👑\n\n' +
+              'بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ\n\n' +
+              'You are cordially invited to celebrate the joyous Nikah & wedding ceremonies of *' + groom + ' & ' + bride + '*.\n\n' +
+              '✨ Explore the royal interactive wedding invitation card, ceremonies, dress code, venue maps & RSVP here:\n' +
+              pageUrl;
+
+            if (navigator.share) {
+              navigator.share({
+                title: groom + ' & ' + bride + ' - Royal Wedding Invitation',
+                text: shareText,
+                url: pageUrl
+              }).catch(function () {
+                window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText), '_blank');
+              });
+            } else {
+              window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText), '_blank');
+            }
+          });
+        }
+
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () {
+            initCountdown();
+            initCalendar();
+            initWhatsApp();
+            initShare();
+          });
+        } else {
+          initCountdown();
+          initCalendar();
+          initWhatsApp();
+          initShare();
+        }
+      })();
+    </script>
   </body>
 </html>

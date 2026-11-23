@@ -49,8 +49,12 @@ body.is-previewing .music-toggle {
 }
 
 .music-toggle__icon {
-  width: 22px;
-  height: 22px;
+  font-size: 19px;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   fill: currentColor;
 }
 
